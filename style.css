@@ -1,0 +1,251 @@
+/* DESIGN SYSTEM — TOKENS */
+
+:root {
+    --bg:         #f5f6fa;
+    --card:       #ffffff;
+    --text:       #111;
+    --muted:      #888;
+
+    --operator:         #ffb48f;
+    --operator-hover:   #ff9b6e;
+
+    --del:        #ff7b7b;
+    --del-hover:  #ff5a5a;
+
+    --eq:         #6ee7a8;
+    --eq-hover:   #4fd18f;
+
+    --btn:        #e6e6e6;
+    --btn-hover:  #d6d6d6;
+
+    --shadow:     0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* BASE */
+
+body {
+    margin: 0;
+    font-family: system-ui, Arial;
+    background: var(--bg);
+}
+
+
+/*  APP LAYOUT */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    padding: 20px;
+}
+
+.divider {
+    width: 2px;
+    height: 70vh;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+/* CALCULATOR — SHELL */ 
+
+.calc {
+    width: 340px;
+    background: var(--card);
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+
+/* CALCULATOR — HEADER */
+
+.calc__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.menu-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.dropdown-menu {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    padding: 8px;
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f2f2f2;
+}
+
+
+/* CALCULATOR — SCREEN */
+
+.calc__screen {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.calc__history,
+.calc__display {
+    width: 100%;
+    border: none;
+    text-align: right;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+}
+
+.calc__history {
+    font-size: 15px;
+    color: var(--muted);
+    height: 24px;
+}
+
+.calc__display {
+    font-size: 40px;
+    font-weight: 600;
+    height: 60px;
+}
+
+
+/* CALCULATOR — KEYPAD */
+
+.calc__keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 58px;
+    border-radius: 16px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    background: var(--btn);
+    transition: 0.2s ease;
+}
+
+button:not(.btn-close):hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+}
+
+.operator         { background: var(--operator);  }
+.operator:hover   { background: var(--operator-hover); }
+
+.del        { background: var(--del); }
+.del:hover  { background: var(--del-hover); }
+
+.equal      { background: var(--eq);  }
+.equal:hover{ background: var(--eq-hover); }
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Dark Mode */
+
+.calc.dark-mode {
+    background: #1f1f1f;
+}
+
+.calc.dark-mode .calc__history,
+.calc.dark-mode .calc__display {
+    color: #ffffff;
+}
+
+.calc.dark-mode .menu-btn {
+    color: #ffffff;
+}
+
+.modal{
+    font-family: 'Times New Roman', Times, serif;
+}
+.modal-footer button{
+    height: 40px;
+}
+
+
+
+/* UNIT CONVERTER — SHELL */
+
+.convertor {
+    width: 500px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.convertor h4 {
+    margin-bottom: 20px !important;
+    color: #ff7b7b;
+    font-family: 'Franklin Gothic Medium' !important;
+}
+
+
+/* UNIT CONVERTER — FORM CONTROLS */
+
+.select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.select:hover,
+.select:focus {
+    border-color: #ced4da !important;
+    outline: none !important;
+    box-shadow: 0 0 12px rgba(13, 110, 253, 0.25) !important;
+}
+
+.input-control {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.input-control:hover,
+.input-control:focus {
+    border-color: #ced4da !important;
+    outline: none !important;
+    box-shadow: 0 0 12px rgba(13, 110, 253, 0.25) !important;
+}

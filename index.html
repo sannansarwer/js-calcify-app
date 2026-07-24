@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcify</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body>
+
+    <!-- Bootstrap Alert Container -->
+    <div id="alertContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+        
+    </div>
+
+    <div class="app">
+
+        <!-- CALCULATOR -->
+        <main class="calc">
+
+            <!-- HEADER (TOP RIGHT MENU) -->
+            <div class="calc__header dropdown">
+
+                <button class="menu-btn" data-bs-toggle="dropdown">⋮</button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item small" href="#" id="copy">Copy</a></li>
+                    <li><a class="dropdown-item small" href="#" id="history" data-bs-toggle="modal" data-bs-target="#staticBackdrop">History</a></li>
+                    <li><a class="dropdown-item small dark-mode" href="#" id="darkMode">Dark Mode</a></li>
+                </ul>
+
+            </div>
+
+            <!-- SCREEN -->
+            <div class="calc__screen">
+                <input class="calc__history" id="previousDisplay" disabled>
+                <input class="calc__display" id="currentDisplay" disabled>
+            </div>
+
+            <!-- KEYS -->
+            <div class="calc__keys" id="calcKeys">
+
+                <button class="operator" id="resetBtn">AC</button>
+                <button class="del" id="deleteBtn">DEL</button>
+                <button class="operator" data-value="%">%</button>
+                <button class="operator" data-value="/">/</button>
+
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+                <button data-value="9">9</button>
+                <button class="operator" data-value="*">*</button>
+
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button class="operator" data-value="-">-</button>
+
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+                <button class="operator" data-value="+">+</button>
+
+                <button class="zero" data-value="0">0</button>
+                <button data-value=".">.</button>
+                <button class="equal" id="equalBtn">=</button>
+
+            </div>
+
+        </main>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Calculator History</h1>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="historyList">
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="clearHistory">Clear History</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="divider"></div>
+
+        <!-- Convertor Panel -->
+        <aside class="convertor">
+            <h4>Unit Convertor</h4>
+
+            <label class="fw-bold">Select Unit:</label>
+            <select class="form-select form-select-sm select mb-3" id="category" aria-label="Small select example">
+                <option value="Length" selected>Length</option>
+                <option value="Area">Area</option>
+                <option value="Weight">Weight</option>
+                <option value="Volume">Volume</option>
+                <option value="Temperature">Temperature</option>
+                <option value="Speed">Speed</option>
+                <option value="Time">Time</option>
+            </select>
+
+            <div class="row g-3 mb-3">
+                <label class="fw-bold">From:</label>
+                <div class="col">
+                 <input type="number" class="form-control input-control" id="fromValue" placeholder="Enter a number" min="0"/>
+                </div>
+                <div class="col">
+                    <select class="form-select select" id="fromUnit">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        <option value="option4">Option 4</option>
+                    </select>
+                </div>
+            </div> 
+
+            <div class="row g-3 mb-3">
+                <label class="fw-bold">To:</label>
+                <div class="col">
+                 <input type="number" class="form-control input-control" id="toValue" placeholder="Enter a number" min="0" readonly/>
+                </div>
+                <div class="col">
+                    <select class="form-select select" id="toUnit">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        <option value="option4">Option 4</option>
+                    </select>
+                </div>
+            </div> 
+
+            <input type="text" class="form-control input-control fw-bold mb-3" id="result" readonly>
+
+
+        </aside>   
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/calculator.js"></script> 
+    <script src="data/units.js"></script>
+    <script src="js/convertor.js"></script>
+    
+
+</body>
+
+</html>
