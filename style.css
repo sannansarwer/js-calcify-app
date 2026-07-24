@@ -36,15 +36,17 @@ body {
 .app {
     min-height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 120px;
+    gap: 40px;
     padding: 20px;
 }
 
 .divider {
     width: 2px;
     height: 70vh;
+    max-height: 500px;
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -53,6 +55,7 @@ body {
 
 .calc {
     width: 340px;
+    max-width: 100%;
     background: var(--card);
     border-radius: 22px;
     padding: 18px;
@@ -203,10 +206,12 @@ button:not(.btn-close):hover {
 
 .convertor {
     width: 500px;
+    max-width: 100%;
     background: var(--card);
     padding: 20px;
     border-radius: 16px;
     box-shadow: var(--shadow);
+    box-sizing: border-box;
 }
 
 .convertor h4 {
@@ -248,4 +253,111 @@ button:not(.btn-close):hover {
     border-color: #ced4da !important;
     outline: none !important;
     box-shadow: 0 0 12px rgba(13, 110, 253, 0.25) !important;
+}
+
+
+/* ============================= */
+/* RESPONSIVE — TABLET & BELOW   */
+/* ============================= */
+
+@media (max-width: 900px) {
+    .app {
+        flex-direction: column;
+        gap: 24px;
+        padding: 16px;
+    }
+
+    /* Turn the vertical divider into a horizontal one when stacked */
+    .divider {
+        width: 90%;
+        max-width: 340px;
+        height: 1px;
+        max-height: none;
+    }
+
+    .calc {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .convertor {
+        width: 100%;
+        max-width: 380px;
+    }
+}
+
+
+/* ============================= */
+/* RESPONSIVE — MOBILE           */
+/* ============================= */
+
+@media (max-width: 420px) {
+    .app {
+        padding: 10px;
+        gap: 18px;
+    }
+
+    .calc {
+        padding: 14px;
+        border-radius: 18px;
+        gap: 10px;
+    }
+
+    .calc__display {
+        font-size: 32px;
+        height: 50px;
+    }
+
+    .calc__history {
+        font-size: 13px;
+    }
+
+    .calc__keys {
+        gap: 8px;
+    }
+
+    button {
+        height: 48px;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+    .menu-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+    .convertor {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .convertor h4 {
+        font-size: 18px;
+    }
+
+    /* Stack the From/To rows instead of squeezing input + select side by side */
+    .convertor .row.g-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 8px !important;
+    }
+
+    .convertor .row.g-3 .col {
+        width: 100%;
+    }
+}
+
+
+/* Very small phones */
+@media (max-width: 340px) {
+    .calc__display {
+        font-size: 26px;
+    }
+
+    button {
+        height: 44px;
+        font-size: 15px;
+    }
 }
