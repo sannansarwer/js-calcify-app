@@ -7,13 +7,11 @@
     --muted:      #888;
 
     --operator:         #ffb48f;
-    --operator-hover:   #ff9b6e;
 
     --del:        #ff7b7b;
-    --del-hover:  #ff5a5a;
 
     --eq:         #6ee7a8;
-    --eq-hover:   #4fd18f;
+   
 
     --btn:        #e6e6e6;
     --btn-hover:  #d6d6d6;
@@ -179,13 +177,13 @@ button:not(.btn-close):hover {
 }
 
 .operator         { background: var(--operator);  }
-.operator:hover   { background: var(--operator-hover); }
+.operator:hover   { background-color:  #ff9b6e !important;}
 
 .del        { background: var(--del); }
-.del:hover  { background: var(--del-hover); }
+.del:hover  { background-color: #f16868 !important; }
 
 .equal      { background: var(--eq);  }
-.equal:hover{ background: var(--eq-hover); }
+.equal:hover{ background-color:#4fd18f !important; }
 
 .zero {
     grid-column: span 2;
