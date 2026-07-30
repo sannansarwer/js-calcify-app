@@ -38,10 +38,6 @@ body {
     background: var(--bg);
 }
 
-p{
-    font-size: small;
-}
-
 /*  APP LAYOUT */
 
 .app {
